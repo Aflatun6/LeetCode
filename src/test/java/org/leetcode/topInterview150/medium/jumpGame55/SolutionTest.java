@@ -17,4 +17,34 @@ public class SolutionTest {
         int[] nums = {3, 2, 1, 0, 4};
         assertFalse(solution.canJump(nums));
     }
+
+    @org.junit.Test
+    public void canJumpTrue0() {
+        Solution solution = new Solution();
+        int[] nums = {0};
+        assertTrue(solution.canJump(nums));
+    }
+
+    @org.junit.Test
+    public void canJumpTrue1() {
+        Solution solution = new Solution();
+        int[] nums = {1};
+        assertTrue(solution.canJump(nums));
+    }
+
+    @org.junit.Test
+    public void canJumpTrue123() {
+        Solution solution = new Solution();
+        int[] nums = {1, 2, 3};
+        assertTrue(solution.canJump(nums));
+    }
+
+    @org.junit.Test
+    public void canJumpTrue20() {
+        Solution solution = new Solution();
+        int[] nums = {2, 0};
+        assertTrue(solution.canJump(nums));
+    }
+
+
 }
