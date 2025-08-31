@@ -15,8 +15,12 @@ class Solution {
     }
 
     public boolean isAnagram(String s, String t) {
-        Map<Character, Long> sList = s.chars().mapToObj(c -> (char) c).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
-        Map<Character, Long> tList = t.chars().mapToObj(c -> (char) c).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        Map<Character, Long> sList = getMap(s);
+        Map<Character, Long> tList = getMap(t);
         return sList.equals(tList);
+    }
+
+    private Map<Character, Long> getMap(String s){
+        return s.chars().mapToObj(c -> (char) c).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
     }
 }
