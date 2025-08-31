@@ -1,17 +1,25 @@
 package org.leetcode.topInterview150.easy.twoSum1;
 
+import java.util.HashMap;
+import java.util.Map;
+
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        int currentSum = 0;
-        for (int i = 0, j = i + 1; j < nums.length; j++) {
-            currentSum = nums[i] + nums[j];
-            if (currentSum == target) {
-                return new int[]{i, j};
+        Map<Integer, Integer> numMap = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            int currentNum = nums[i];
+            int complement = target - currentNum;
+
+            // Check if the complement exists in the map.
+            if (numMap.containsKey(complement)) {
+                // If it exists, we have found the two numbers.
+                // Return the index of the complement and the current index.
+                return new int[]{numMap.get(complement), i};
             }
-            if (j == nums.length - 1) {
-                i++;
-                j = i;
-            }
+
+            // If the complement is not found, add the current number and its index to the map.
+            numMap.put(currentNum, i);
         }
         return null;
     }
